@@ -1,172 +1,218 @@
-# 🧾 V8 Runtime Model → LearnCpp Concept Map
+# 🧾 VM / Compiler / GC Books vs V8 Docs — Concept Map
 
 ---
 
-## 1️⃣ Core Objects (JSFunction, SFI, Context…)
+## ✅ உங்கள் 4 Books Cover பண்ணும் Theory
 
-**இது = C++ object layout + inheritance + members**
+**Books:**
+```
+Crafting Interpreters  → VM + bytecode
+Engineering a Compiler → SSA + optimizer
+GC Handbook            → GC
+C++                    → memory + objects
+```
 
-**LearnCpp required:**
+**இதனால் தெரிந்திருப்பது:**
 ```
-Ch10 Structs
-Ch12 Classes
-Ch13 Class relationships
-Ch14 Inheritance
+interpreter loop
+bytecode VM
+closures
+SSA IR
+register allocation
+optimizations
+GC algorithms
 ```
+
+✔ universal compiler/runtime theory
+
+---
+
+## 🎯 V8 Docs-ல் மட்டும் இருக்கும் (Books-ல் இல்லாதது)
+
+---
+
+### 1️⃣ Hidden Classes (Maps)
+
+**V8 docs:** Maps, aka Hidden Classes
+
+✔ Books-ல் இது கிடையாது
 
 **ஏன்?**
 
-| V8 object | C++ concept |
-|-----------|-------------|
-| HeapObject base | base class |
-| JSObject extends | inheritance |
-| fields | data members |
-| Tagged\<T\> | pointer wrapper |
-| object graph | references |
+Books assume:
+```
+objects = hash map
+```
 
-✔ இதுதான் V8 heap layout
+V8 reality:
+```
+objects = struct-like layout
+shape transitions
+inline property offsets
+```
+
+✔ JS dynamic objects → static-like optimization  
+✔ இது V8-specific trick
 
 ---
 
-## 2️⃣ Execution Pipeline (Tiers, Code Patching)
+### 2️⃣ Inline Caches (Real JS IC Design)
 
-**இது = object state change + pointers**
-
-**LearnCpp required:**
+**V8 docs:**
 ```
-Ch12 Classes
-Ch13 Member functions
-Ch6  Scope/lifetime
-Ch9  Pointers
+monomorphic
+polymorphic
+megamorphic
+feedback vector
 ```
 
-**ஏன்?**
+**Books-ல் IC concept வரும் BUT:**
+```
+❌ JS property IC இல்லை
+❌ FeedbackVector இல்லை
+❌ shape-based IC இல்லை
+```
 
-| V8 | C++ |
-|----|-----|
-| JSFunction.code update | member change |
-| tier patch | pointer replace |
-| function_data swap | pointer field |
-| lifetime | scope |
+✔ V8 IC = language-specific specialization
 
 ---
 
-## 3️⃣ Stack Frame
+### 3️⃣ Slack Tracking
 
-**இது = call stack memory**
+**V8 docs:** Slack Tracking — what is it?
 
-**LearnCpp required:**
+✔ Books-ல் 0%
+
+**Idea:**
 ```
-Ch9  Pointers
-Ch6  Scope
-Ch12 Classes (object lifetime)
+constructor objects
+initial size guess
+unused slots shrink later
 ```
 
-**ஏன்?**
-
-| V8 | C++ |
-|----|-----|
-| stack vs heap | storage duration |
-| locals | automatic vars |
-| call frame | stack memory |
-| return addr | function call model |
+✔ JS object allocation optimization trick
 
 ---
 
-## 4️⃣ Inline Cache Memory (FeedbackVector.slots)
+### 4️⃣ Torque Language
 
-**இது = array of polymorphic refs**
-
-**LearnCpp required:**
+**V8 docs:**
 ```
-Ch10 Structs
-Ch12 Classes
-Ch9  Pointers
+Torque user manual
+CSA builtins
 ```
 
-**ஏன்?**
+✔ Books-ல் இல்லை
 
-| V8 | C++ |
-|----|-----|
-| MaybeObject[] | pointer array |
-| slot state | enum + union idea |
-| IC update | element write |
-| feedback vector | struct with array |
+**Torque =**
+```
+DSL for VM objects + builtins
+```
+
+✔ V8 internal meta-language
 
 ---
 
-## 5️⃣ GC Movement
+### 5️⃣ JS-Specific Deoptimization Realities
 
-**இது = heap graph + pointer relocation**
-
-**LearnCpp required:**
+**Books:**
 ```
-Ch9  Pointers ⭐
-Ch13 Object relationships
-Ch14 Inheritance
+deopt exists
 ```
 
-**ஏன்?**
+**V8 docs:**
+```
+speculative JS assumptions
+maps + IC + feedback
+real bailout causes
+```
 
-| V8 | C++ |
-|----|-----|
-| object move | pointer update |
-| reference graph | object links |
-| heap graph | pointers |
-| base pointer | polymorphism |
+✔ dynamic language JIT reality
 
 ---
 
-## ✅ Minimal LearnCpp Set (Exact for You)
+### 6️⃣ Ignition Accumulator Design
 
-**இதுதான் full V8 runtime mental model-க்கு sufficient:**
-
+**Crafting Interpreters:**
 ```
-MUST MASTER
-Ch9  Pointers & references
-Ch10 Structs
-Ch12 Classes
-Ch13 Advanced classes
-Ch14 Inheritance
+stack VM
+```
 
-SUPPORT
-Ch6  Scope & lifetime
+**V8:**
+```
+register + accumulator hybrid
+```
+
+✔ design difference
+
+---
+
+### 7️⃣ TurboFan Sea-of-Nodes for JS
+
+**Engineering a Compiler:**
+```
+SSA graph
+```
+
+**V8:**
+```
+JS typed nodes
+speculative types
+feedback driven IR
+```
+
+✔ dynamic language SSA
+
+---
+
+## 📊 Summary — Books vs V8 Docs
+
+| Topic | Books | V8 docs |
+|-------|-------|---------|
+| VM | ✅ | — |
+| Bytecode | ✅ | — |
+| SSA | ✅ | — |
+| GC | ✅ | — |
+| Register alloc | ✅ | — |
+| Closures | ✅ | — |
+| Hidden classes | ❌ | ✅ |
+| JS inline caches | ❌ | ✅ |
+| Feedback vector | ❌ | ✅ |
+| Slack tracking | ❌ | ✅ |
+| Torque | ❌ | ✅ |
+| JS deopt causes | ❌ | ✅ |
+| JS shapes | ❌ | ✅ |
+
+---
+
+## ✅ Answer
+
+V8 docs-ல் இருக்கும் Hidden Classes, Inline Caches, Slack Tracking, Torque, JS-specific deoptimization, JS object layout இந்த topics-ஐ எந்த compiler/VM/GC books-லும் முழுமையாக கற்றுக்கொள்ள முடியாது, ஏனெனில் அவை JavaScript language-க்கு குறிப்பாக V8 engine உருவாக்கிய implementation strategies ஆகும்.
+
+---
+
+## 🎯 Exactly What YOU Should Read
+
+**From your list — Under the hood → read:**
+```
+Ignition
+TurboFan
+Maps (Hidden Classes)
+Slack Tracking
+```
+
+**Optional later:**
+```
+Torque
 ```
 
 ---
 
-## ❌ Not Needed for V8 Runtime
+## ✅ Bottom Line
 
-**Safe skip:**
 ```
-operators
-control flow
-templates deep
-STL
-exceptions
-arrays chapter
-debugging
+Books    → universal engine theory
+V8 docs  → JS engine reality
 ```
 
-✔ engine reading-க்கு irrelevant
-
----
-
-## 📊 Coverage Proof
-
-| V8 runtime topic | Covered by |
-|-----------------|------------|
-| Heap objects | classes |
-| Object graph | pointers |
-| Inheritance chain | inheritance |
-| IC slots | struct + array |
-| Stack frame | scope + stack |
-| GC move | pointers |
-
-✔ 100% mapping
-
----
-
-## 🎯 Final Answer
-
-JavaScript V8 engine-இன் Core objects, execution pipeline, stack frame, inline cache memory மற்றும் GC movement ஆகிய runtime memory model-ஐ தெளிவாக புரிந்து கொள்ள LearnCpp-இல் Chapter 9 (Pointers), Chapter 10 (Structs), Chapter 12–13 (Classes) மற்றும் Chapter 14 (Inheritance) ஆகிய பகுதிகளை முதன்மையாக படிப்பது போதுமானது; இவை V8 object layout, pointer graph, class hierarchy மற்றும் heap/stack semantics ஆகியவற்றை நேரடியாக விளக்கும் C++ structural concepts-ஐ வழங்குவதால் உங்கள் engine mental model-க்கு முழு ஆதரவாக இருக்கும்.
+✔ இரண்டும் சேரும் இடம் = V8 mastery
