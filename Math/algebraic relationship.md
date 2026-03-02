@@ -208,3 +208,202 @@ rectangle (base×base±…)
 நீங்கள் விரும்பினால்  
 👉 visual geometric proof (area model)  
 காட்டலாம் 👍
+---------
+
+
+இப்போது **square trick (A² = (A+d)(A−d)+d²)** எப்படி வேலை செய்கிறது என்பதை  
+📐 **visual area model (geometry proof)** மூலம் தெளிவாகப் பார்ப்போம்.
+
+----------
+
+# 🧠 Goal
+
+ஏன்:
+
+A2=(A+d)(A−d)+d2A^2 = (A+d)(A-d) + d^2A2=(A+d)(A−d)+d2
+
+சரி?
+
+இதைக் geometry-ஆக நிரூபிப்போம்.
+
+----------
+
+# 📐 Step 1 — A² = square area
+
+ஒரு பக்கம் A உள்ள square:
+
+Area = A×A
+
++---------+  
+|         |  
+|   A²    |  
+|         |  
++---------+
+
+----------
+
+# 📐 Step 2 — A = base ± d
+
+நாம் A-க்கு அருகிலுள்ள base எடுத்துக்கொள்கிறோம்.
+
+Example:
+
+A=77  
+base=80  
+d=3
+
+அதனால்:
+
+77 = 80−3
+
+----------
+
+# 📐 Step 3 — rectangle உருவாக்கு
+
+(80×74) rectangle பாருங்கள்:
+
+80 = 77+3  
+74 = 77−3
+
+ 80  
++-----------+  
+|           |  
+|           | 74  
+|           |  
++-----------+
+
+Area = 80×74
+
+----------
+
+# 📐 Step 4 — difference area
+
+இந்த rectangle மற்றும் 77² square இடையிலான வேறுபாடு:
+
+ஒரு சிறிய square d×d
+
+d=3
+
+3×3 = 9
+
+----------
+
+# 📐 Visual decomposition
+
+80×74 rectangle  
+  
+= 77×77 square  
+ − (3×77 strip)  
+ + (3×77 strip)  
+ − 3×3 corner
+
+simplify:
+
+= 77² − 9
+
+அதனால்:
+
+77² = 80×74 + 9
+
+----------
+
+# 📐 Simple geometric view
+
+A+d மற்றும் A−d rectangle:
+
+(A+d)(A−d)
+
+இந்த rectangle = A² − d²
+
+ஏன்?
+
+difference of squares identity.
+
+----------
+
+# ✔️ Geometry identity
+
+Area difference:
+
+(A+d)(A−d)  
+= A² − d²
+
+அதனால்:
+
+A² = (A+d)(A−d) + d²
+
+✔ proved visually.
+
+----------
+
+# 🔎 Concrete example — 77²
+
+A=77  
+d=3
+
+rectangle = 80×74 = 5920
+
+small square = 9
+
+5920+9 = **5929**
+
+----------
+
+# 🧠 Why mental math works
+
+square near base:
+
+👉 big rectangle (easy multiply)  
+👉 + small square
+
+brain friendly.
+
+----------
+
+# ⭐ Another example — 41²
+
+A=41  
+base=40  
+d=1
+
+rectangle = 40×42 = 1680
+
+small square = 1
+
+1681
+
+----------
+
+# ✔️ Key visual insight
+
+square ≈ rectangle near base
+
+-   correction square
+    
+
+----------
+
+# 🧠 Final intuition
+
+Square near base:
+
+ base+d  
++---------+  
+|         |  
+|         |  
+|         |  
++---------+
+
+convert to:
+
+(base+d)(base−d) + d²
+
+----------
+
+நீங்கள் விரும்பினால்  
+👉 animated step diagram  
+அல்லது  
+👉 multiple examples visual  
+காட்டலாம் 👍
+-----
+
