@@ -954,4 +954,165 @@ x + 3 = 10
 👉 “terms transpose algebra rule”  
 visual explain செய்யலாம் 👍
 ---
-``
+`algebra ஏன் `A² isolate செய்ய வேண்டும்``
+
+அருமையான “ஏன்?” கேள்வி 👍  
+நீங்கள் கேட்கிறீர்கள்:
+
+> **“ஏன் algebra-ல் A²-ஐ isolate செய்ய வேண்டும்?”**
+
+இது mental math trick புரிய மிகவும் முக்கியமான புள்ளி.  
+நேராக, ஆழமாக விளக்குகிறேன்.
+
+----------
+
+# 🧠 முதலில் — நம் இலக்கு என்ன?
+
+நாம் square கணக்கிட விரும்புவது:
+
+A2A^2A2
+
+உதா:  
+77²  
+41²  
+56²
+
+👉 நமக்கு வேண்டியது A² value.
+
+----------
+
+# ⭐ ஆனால் identity என்ன கொடுக்கிறது?
+
+(A+d)(A−d)=A2−d2(A+d)(A-d)=A^2-d^2(A+d)(A−d)=A2−d2
+
+இது A² மட்டும் அல்ல.  
+A² − d²
+
+அதாவது A² மறைந்து இருக்கிறது.
+
+----------
+
+# 🧠 ஏன் isolate?
+
+நாம் கணக்கிட வேண்டியது:
+
+A2=?A^2 = ?A2=?
+
+அதனால் A² தனியாக இருக்க வேண்டும்.
+
+----------
+
+# 📐 Practical reason (mental math)
+
+நாம் எளிதாக கணக்கிடுவது:
+
+(A+d)(A−d)(A+d)(A-d)(A+d)(A−d)
+
+ஏன்?
+
+base அருகில் numbers.
+
+உதா:
+
+80×74 easy  
+40×42 easy
+
+----------
+
+# ⭐ ஆனால் அது A² இல்லை
+
+(A+d)(A−d)=A2−d2(A+d)(A-d)=A^2-d^2(A+d)(A−d)=A2−d2
+
+அதனால் correction தேவை.
+
+----------
+
+# 🧠 அதனால் isolate
+
+A2=(A+d)(A−d)+d2A^2 = (A+d)(A-d)+d^2A2=(A+d)(A−d)+d2
+
+இப்போது:
+
+👉 easy rectangle  
+👉 + small square
+
+----------
+
+# 🔎 Example 77²
+
+rectangle:
+
+80×74 = 5920
+
+correction:
+
++9
+
+=5929
+
+----------
+
+# ✔️ ஏன் isolate அவசியம்
+
+இல்லையெனில் formula unusable:
+
+நமக்கு A² தேவை  
+ஆனால் RHS-ல் A² இல்லை.
+
+----------
+
+# 🧠 General algebra purpose
+
+isolate variable:
+
+👉 unknown value கண்டுபிடிக்க  
+👉 direct compute செய்ய
+
+----------
+
+# 🔎 Analogy
+
+x−9 = 20
+
+x isolate:
+
+x = 29
+
+----------
+
+# ⭐ Mental math context
+
+square trick:
+
+goal = A²
+
+அதனால்:
+
+A² isolate.
+
+----------
+
+# ✔️ Conclusion
+
+“A² isolate” செய்தது:
+
+👉 A² தான் final quantity  
+👉 identity-ல் மறைந்து இருந்தது  
+👉 usable formula பெற
+
+----------
+
+# 🧠 Deep intuition
+
+square = rectangle + correction
+
+அதை நேரடியாக எழுத isolate தேவை.
+
+----------
+
+நீங்கள் விரும்பினால்  
+👉 square identity முழு derivation (zero-இருந்து)  
+அல்லது  
+👉 geometry-to-algebra bridge
+
+காட்டலாம் 👍
