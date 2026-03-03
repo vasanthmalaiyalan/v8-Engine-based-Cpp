@@ -1,29 +1,19 @@
 
 # 🧭 STAGE 1 — Assembly Visualization Layer
 
-## 📘 x86 Assembly Language and C Fundamentals
+## 📘 Modern X86 Assembly Language Programming
 
 **Purpose:**
 
--   Registers
-    
--   Stack frame
-    
--   Calling convention
-    
--   C ↔ Assembly mapping
-    
--   Pointer visualization
-    
+For:
 
-Do NOT:
-
--   Study CPU pipelines
+-   CPU-level clarity ✅
     
--   Study microarchitecture
+-   Register usage clarity ✅
     
-
-Goal: See what C becomes.
+-   Calling convention clarity ✅
+    
+-   Advanced performance knowledge ✅
 
 ----------
 
